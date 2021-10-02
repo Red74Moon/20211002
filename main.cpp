@@ -54,15 +54,6 @@ void Process()
 {
 	++ProductNum;
 
-	//int FixedCosts = 0;		// 고정비용 - 입력
-	//int VariableCost = 0;	// 가변비용 - 입력
-	//int ObjectCost = 0;		// 물건의 가격 - 입력
-	//int ProductionCost = 0;	// 제작비용
-	//int ProductNum = 0;		// 제작갯수
-	//int TotalSellingPrice = 0;	// 총판매가격
-	//bool StatusCode = true;
-
-
 	ProductionCost = FixedCosts + (VariableCost * ProductNum);
 
 	TotalSellingPrice = ProductNum * ObjectCost;
