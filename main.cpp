@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+
+//주석 추가
 using namespace std;
 
 struct Employee 
