@@ -14,55 +14,81 @@
 
 using namespace std;
 
+
+void Initialize();
+void Input();
+void Process();
+void Output();
+
+int FixedCosts = 0;	// 고정비용 - 입력
+int VariableCost = 0;	// 가변비용 - 입력
+int ObjectCost = 0;	// 물건의 가격 - 입력
+int ProductionCost = 0;	// 제작비용
+int ProductNum = 0;	// 제작갯수
+int TotalSellingPrice = 0;	// 총판매가격
+bool StatusCode = true;
+
+
 int main()
 {
-	int FixedCosts = 0;			// 고정비용 - 입력
-	int VariableCost = 0;		// 가변비용 - 입력
-	int ObjectCost = 0;			// 물건의 가격 - 입력
-	int ProductionCost = 0;		// 제작비용
-	int ProductNum = 0;			// 제작갯수
-	int TotalSellingPrice = 0;	// 총판매가격
+	Input();
 
+	while (StatusCode)
+	{
+		Process();
+	}
+	return 0;
+}
+
+
+void Initialize()
+{
+}
+
+void Input()
+{
 	cout << "1.고정비용을 입력하세요 : ";
 	cin >> FixedCosts;
 
-	cout << "2.가변비용을 입력하세요 : ";
+	cout << "2.생산비용을 입력하세요 : ";
 	cin >> VariableCost;
 
-	cout << "3.판매가격을 입력하세요 : ";
+	cout << "3.제품가격을 입력하세요 : ";
 	cin >> ObjectCost;
+}
+
+void Process()
+{
+	++ProductNum;
+
+	ProductionCost = FixedCosts + (VariableCost * ProductNum);
+
+	TotalSellingPrice = ProductNum * ObjectCost;
+
+	cout << "고정비용 : " << FixedCosts << endl;
+	cout << "생산비용 : " << VariableCost << endl;
+	cout << "제작비용 : " << ProductionCost << endl;
+	cout << "생산갯수 : " << ProductNum << endl;
+	cout << "제품가격 : " << ObjectCost << endl;
+	cout << "총판매가격 : " << TotalSellingPrice << endl;
 
 
-	while (true)
+	if (ProductionCost < TotalSellingPrice)
 	{
-		++ProductNum;
-
-		ProductionCost = FixedCosts + (VariableCost * ProductNum);
-
-		TotalSellingPrice = ProductNum * ObjectCost;
-
-		cout << "고정비용 : " << FixedCosts << endl;
-		cout << "가변비용 : " << VariableCost << endl;
-		cout << "제작비용 : " << ProductionCost << endl;
-		cout << "제작갯수 : " << ProductNum << endl;
-		cout << "물건가격 : " << ObjectCost << endl;
-		cout << "총판매가격 : " << TotalSellingPrice << endl;
-
-
-		if (ProductionCost < TotalSellingPrice)
-		{
-			cout << endl << endl;
-			cout << ProductNum << " 개 생산 " << endl;
-			cout << "손익분기점이 넘었습니다." << endl;
-			break;
-		}
-		else
-		{
-			cout << endl << endl;
-			cout << ProductNum << " 개 생산 " << endl;
-			cout << "아직 손익분기점이 넘지않았습니다." << endl;
-			cout << endl << endl;
-		}
+		cout << endl << endl;
+		cout << ProductNum << " 개 생산 " << endl;
+		cout << "손익분기점이 넘었습니다." << endl;
+		StatusCode = false;
 	}
-	return 0;
+	else
+	{
+		cout << endl << endl;
+		cout << ProductNum << " 개 생산 " << endl;
+		cout << "아직 손익분기점이 넘지않았습니다." << endl;
+		cout << endl << endl;
+	}
+}
+
+void Output()
+{
 }
