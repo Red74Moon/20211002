@@ -6,7 +6,7 @@ using namespace std;
 struct Employee 
 {
 	short id;
-	int age;
+	string age;
 	string name;
 };
 
@@ -14,10 +14,10 @@ struct Employee
 int main()
 {
 	Employee E1;
-	cout << "ID : ";
-	cin >> E1.id;
+	//cout << "ID : ";
+	//cin >> E1.id;
 	cout << "Age : ";
-	cin >> E1.age;
+	getline(cin, E1.age);
 	cout << "Name : ";
 	getline(cin, E1.name);
 
