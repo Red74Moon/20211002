@@ -14,9 +14,14 @@ struct Employee
 int main()
 {
 	Employee E1;
-	E1.id = 1;
-	E1.age = 10;
-	E1.name = "Jon";
+	cout << "ID : ";
+	cin >> E1.id;
+	cout << "Age : ";
+	cin >> E1.age;
+	cout << "Name : ";
+	getline(cin, E1.name);
+
+	cout << endl << endl;
 
 	cout << "ID : " << E1.id << endl;
 	cout << "AGE : " << E1.age << endl;
