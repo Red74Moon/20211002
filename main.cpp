@@ -5,7 +5,7 @@ using namespace std;
 
 struct Employee 
 {
-	short id;
+	string id;
 	string age;
 	string name;
 };
@@ -14,8 +14,8 @@ struct Employee
 int main()
 {
 	Employee E1;
-	//cout << "ID : ";
-	//cin >> E1.id;
+	cout << "ID : ";
+	getline(cin, E1.id);
 	cout << "Age : ";
 	getline(cin, E1.age);
 	cout << "Name : ";
