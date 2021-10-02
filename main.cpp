@@ -16,38 +16,53 @@ using namespace std;
 
 int main()
 {
-	int FixedCosts = 1000000;	// 고정비용
-	int VariableCost = 50000;	// 가변비용
-	int ObjectCost = 100000;	// 물건의 가격
+	int FixedCosts = 0;			// 고정비용 - 입력
+	int VariableCost = 0;		// 가변비용 - 입력
+	int ObjectCost = 0;			// 물건의 가격 - 입력
 	int ProductionCost = 0;		// 제작비용
 	int ProductNum = 0;			// 제작갯수
 	int TotalSellingPrice = 0;	// 총판매가격
 
-	cout << "제작된 물건의 수 : ";
-	cin >> ProductNum;
+	cout << "1.고정비용을 입력하세요 : ";
+	cin >> FixedCosts;
 
-	ProductionCost = FixedCosts + (VariableCost * ProductNum);
+	cout << "2.가변비용을 입력하세요 : ";
+	cin >> VariableCost;
 
-	TotalSellingPrice = ProductNum * ObjectCost;
-
-	cout << "고정비용 : " << FixedCosts << endl;
-	cout << "가변비용 : " << VariableCost << endl;
-	cout << "제작비용 : " << ProductionCost << endl;
-	cout << "제작갯수 : " << ProductNum << endl;
-	cout << "물건가격 : " << ObjectCost << endl;
-	cout << "총판매가격 : " << TotalSellingPrice << endl;
+	cout << "3.판매가격을 입력하세요 : ";
+	cin >> ObjectCost;
 
 
-	if (ProductionCost < TotalSellingPrice)
+	while (true)
 	{
-		cout << endl << endl;
-		cout << "손익분기점이 넘었습니다." << endl;
+		++ProductNum;
+
+		ProductionCost = FixedCosts + (VariableCost * ProductNum);
+
+		TotalSellingPrice = ProductNum * ObjectCost;
+
+		cout << "고정비용 : " << FixedCosts << endl;
+		cout << "가변비용 : " << VariableCost << endl;
+		cout << "제작비용 : " << ProductionCost << endl;
+		cout << "제작갯수 : " << ProductNum << endl;
+		cout << "물건가격 : " << ObjectCost << endl;
+		cout << "총판매가격 : " << TotalSellingPrice << endl;
+
+
+		if (ProductionCost < TotalSellingPrice)
+		{
+			cout << endl << endl;
+			cout << ProductNum << " 개 생산 " << endl;
+			cout << "손익분기점이 넘었습니다." << endl;
+			break;
+		}
+		else
+		{
+			cout << endl << endl;
+			cout << ProductNum << " 개 생산 " << endl;
+			cout << "아직 손익분기점이 넘지않았습니다." << endl;
+			cout << endl << endl;
+		}
 	}
-	else
-	{
-		cout << endl << endl;
-		cout << "아직 손익분기점이 넘지않았습니다." << endl;
-	}
-	
 	return 0;
 }
